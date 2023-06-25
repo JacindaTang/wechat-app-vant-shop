@@ -1,0 +1,10 @@
+/* pages/goods/goods.wxss */
+/* 推荐栏卡片组件 购买按钮 */
+.van-card__bottom {
+  display: flex;
+  align-items: center;
+}
+.van-card__bottom view:last-child {
+  margin-left: auto;
+  margin-right: 0px;
+}

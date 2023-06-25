@@ -1,0 +1,57 @@
+<!--pages/user/order/order.wxml-->
+<wxs module="filter" src="/utils/numberToFixed.wxs"></wxs>
+
+<van-tabs swipeable color="#2775b6" title-active-color="#2775b6" active="{{ tabIndex }}" bind:change="onChange">
+  <block wx:for="{{orderTabList}}" wx:key="index">
+    <van-tab title="{{item.title}}" name="{{index}}">
+      <scroll-view scroll-y="true" style="height: auto;margin-bottom: 100px;">
+        <!-- tab内容 -->
+        <block wx:for="{{ item.cartList }}" wx:key="cartIndex" wx:for-item="cart" wx:for-index="cartIndex">
+          <view class="card">
+            <!-- 店铺标题 -->
+            <block wx:if="{{cart.shopName != ''}}">
+              <view class="card_head">
+                <view class="card_head_leftbox">
+                  <van-icon color="grey" name="shop-o" size="19px" class="shop_check" />
+                  <view bindtap="toShop">{{cart.shopName}}</view>
+                  <van-icon bindtap="toShop" name="arrow" size="11px" class="shop_arrow" color="grey"/>
+                </view>
+                <view style="color: red;font-size: small;letter-spacing: 1px;">
+                  <view wx:if="{{cart.status === 1}}">已完成</view>
+                  <view wx:elif="{{cart.status === 2}}">待付款</view>
+                  <view wx:elif="{{cart.status === 3}}">待发货</view>
+                  <view wx:elif="{{cart.status === 4}}">待收货</view>
+                  <view wx:elif="{{cart.status === 5}}">待评价</view>
+                </view>
+              </view>
+            </block>
+            <!-- 商品内容 -->
+            <block wx:for="{{cart.goodsList}}" wx:key="index" wx:for-item="goods">
+              <van-card
+                num="{{goods.num}}"
+                price="{{goods.price}}"
+                desc="{{goods.scale}}"
+                title="{{goods.title}}"
+                thumb="{{goods.image}}"
+              >
+              </van-card>
+            </block>
+            <view class="order_pay" >实付款：￥{{filter.numberToFixed(cart.totalPrice,2)}}</view>
+            <view class="order_btn">
+              <van-button size="small" round style="margin-right: 10px;">删除订单</van-button>
+              <van-button size="small" round >查看物流</van-button>
+            </view>
+          </view>
+        </block>
+        <block wx:if="{{item.cartList.length === 0}}">
+          <!-- 购物车为空 -->
+          <view class="cart_null">
+            <image src="/images/no_order.svg"></image>
+            <view class="no_order">您还没有相关的订单</view>
+          </view>
+        </block>
+      </scroll-view>
+    </van-tab>
+  </block>
+</van-tabs>
+

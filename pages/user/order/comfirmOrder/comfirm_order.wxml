@@ -1,0 +1,90 @@
+<block wx:if="{{addressList.length === 0}}">
+  <!-- 添加地址 -->
+  <van-cell
+    is-link
+    title="添加收货地址"
+    link-type="navigateTo"
+    url="/pages/user/address/editAddress/editAddress"
+    border="{{false}}"
+    icon="location-o"
+  />
+</block>
+<!-- 显示收货地址 -->
+<block wx:else>
+  <view class="address_box" bindtap="toAddressList">
+    <van-icon color="red" name="location-o" size="large"/>
+    <view class="address_contain">
+      <view>
+        <text>收货人：{{address.username}}</text>
+        <text>联系方式：{{address.number}}</text>
+      </view>
+      <view>
+        <text>收货地址：{{address.detailAddress}}</text>
+        <text wx:if="{{address.postCode != ''}}">邮编：{{address.postCode}}</text>
+      </view>
+    </view>
+    <van-icon name="arrow" size="medium" color="grey"/>
+  </view>
+</block>
+
+
+<!-- 分隔符 -->
+<view class="divider"></view>
+
+<!-- 订单详情 -->
+<scroll-view scroll-Y="true" style="height: auto;margin-bottom: 150px;">
+  <view style="background-color: white;">
+    <!-- 店铺订单列 -->
+    <block wx:for="{{orderList}}" wx:key="index">
+      <van-cell title="{{item.shopName}}" icon="shop-o" border="{{ false }}"/>
+      <!-- 商品详情 -->
+      <block wx:for="{{item.detail}}" wx:for-item="child" wx:key="childIndex">
+        <van-card
+          custom-class="card"
+          num="{{child.num}}"
+          price="{{child.price}}"
+          desc="{{child.scale}}"
+          title="{{child.title}}"
+          thumb="{{child.image}}"
+        />
+      </block>
+      <!-- 商家留言 -->
+      <van-cell>
+        <view slot="title">
+          <view class="van-cell-text" style="display: flex;align-items: center;">
+            给商家留言：
+            <input placeholder="留言"/>
+          </view>
+        </view>
+      </van-cell>
+      <!-- 商品小计 -->
+      <van-cell border="{{false}}">
+        <view slot="">
+          <view>共<text style="color: red;padding: 0px 5px;">{{item.detail.length}}</text>件商品 小计：<text style="color: red;">￥{{item.subPrice}}</text></view>
+        </view>
+      </van-cell>
+      <!-- 分隔符 -->
+      <view style="height: 10px; background-color: rgb(245, 245, 245);"></view>
+    </block>
+    
+  </view>
+
+  <!-- 分隔符 -->
+  <!-- <view class="divider"></view> -->
+
+  <!-- 运费 -->
+  <view>
+    <van-cell title="商品金额" value="￥{{totalPrice}}" />
+    <van-cell title="运费" value="￥8" border="{{ false }}" />
+  </view>
+</scroll-view>
+
+
+
+<!-- 底部 -->
+<van-submit-bar
+  price="{{ totalPrice * 100 }}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+  safe-area-inset-bottom="{{false}}"
+/>

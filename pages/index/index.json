@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "card": "./card/card",
+    "backtop": "../component/backtop/backtop"
+  }
+}

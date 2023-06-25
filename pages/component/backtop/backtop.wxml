@@ -1,0 +1,5 @@
+<!--pages/component/backtop/backtop.wxml-->
+<van-icon name="back-top" class="toTop" size="25px" bind:click="toTop"
+ wx:if="{{scrollTop}}" />
+
+

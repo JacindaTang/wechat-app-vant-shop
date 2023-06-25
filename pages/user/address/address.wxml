@@ -1,0 +1,36 @@
+<!--pages/user/address/address.wxml-->
+<!-- 添加收货地址 -->
+<van-cell title="添加收货地址" icon="add" custom-class="address" url="/pages/user/address/editAddress/editAddress" border="{{false}}"/>
+<!-- 分隔符 -->
+<view wx:if="{{addressList.length != 0}}" style="height: 10px;background-color: rgb(245, 245, 245);"></view>
+
+<!-- 购物车为空 -->
+<view class="cart_null" wx:if="{{addressList.length === 0}}">
+  <image src="/images/address.svg"></image>
+  <view>暂无收货地址，赶紧去添加呀 ~</view>
+</view>
+
+<!-- 地址列表 -->
+<scroll-view scroll-y="true" style="height: auto;">
+  <block wx:for="{{addressList}}" wx:key="index">
+    <!-- 地址卡片 -->
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+    <view class="address_box">
+      <view style="display: flex;align-items: center;">
+        <van-radio name="{{index}}" checked-color="#2775b6" />
+        <view class="address_contain">
+          <view style="font-weight: bold;">
+            <text>{{item.username}}</text>
+            <text>{{item.number}}</text>
+          </view>
+          <view>
+            <text>{{item.detailAddress}}</text>
+            <text>{{item.postCode}}</text>
+          </view>
+        </view>
+      </view>
+      <van-icon name="edit" size="medium" color="grey" bind:click="toEdit"/>
+    </view>
+  </van-radio-group>
+  </block>
+</scroll-view>

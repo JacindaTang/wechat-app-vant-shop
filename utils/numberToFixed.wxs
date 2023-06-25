@@ -1,0 +1,4 @@
+var numberToFixed = function (value, num) {
+  return value.toFixed(num)
+}
+module.exports.numberToFixed = numberToFixed

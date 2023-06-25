@@ -1,0 +1,55 @@
+/* pages/user/user.wxss */
+page {
+  background-color: rgb(245, 245, 245);
+}
+.top_bg {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.top_bg::after {
+  content: '';
+  width: 140%;
+  height: 100%;
+  position: absolute;
+  left: -20%;
+  top: 0;
+  z-index: 2;
+  border-radius: 0 0 50% 50%;
+  background: #2775b6;
+}
+.card {
+  width: 90%;
+  height: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 16rpx 0px rgba(0,0,0,0.08);
+  border-radius: 13rpx;
+  margin: -80rpx auto 0;
+  position: relative;
+  z-index: 3;
+}
+.van-grid {
+  padding-bottom: 5px;
+}
+.van-grid-item {
+  padding-top: 0px;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  z-index: 2222;
+
+}
+.service {
+  margin-top: 20px;
+  height: auto;
+}
+.about {
+  margin-bottom: 80px;
+}
+

@@ -1,0 +1,67 @@
+/* pages/user/order/order.wxss */
+page {
+  background-color: rgb(245, 245, 245);
+}
+
+/* 购物车为空 */
+.cart_null {
+  text-align: center;
+  align-items: center;
+  padding-top: 40px;
+}
+.no_order {
+  color: grey;
+  font-size: 15px;
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+
+/* 订单卡片 */
+.card {
+  margin: 15px;
+  padding: 5px 0;
+  padding-top: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.order_pay {
+  font-weight: bold; 
+  font-size: 15px; 
+  display: flex; 
+  justify-content: flex-end; 
+  padding: 7px 15px;
+}
+.order_btn {
+  display: flex; 
+  justify-content:flex-end; 
+  padding: 12px;
+}
+
+/* 购物车卡片头部 */
+.card_head {
+  display: flex; 
+  align-items: center;
+  padding: 2px 10px;
+  padding-bottom: 5px;
+  justify-content: space-between;
+}
+.card_head_leftbox {
+  display: flex; 
+  align-items: center;
+}
+.shop_check {
+  margin-right: 7px; 
+  vertical-align: middle;
+}
+.shop_arrow {
+  margin-left: 3px; 
+  vertical-align: middle;
+}
+
+/* 卡片底部按钮 */
+.van-button--small {
+  font-size: 13px !important;
+  height: 33px !important;
+  padding: 12px !important;
+}

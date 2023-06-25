@@ -1,0 +1,12 @@
+/* pages/component/backtop/backtop.wxss */
+/* 返回顶部 */
+.toTop{
+  height: 80rpx;
+  width: 80rpx;
+  position: fixed;
+  bottom: 100rpx;
+  background: #bfbfbf;
+  color: white;
+  right: 30rpx;
+  border-radius: 50%;
+}

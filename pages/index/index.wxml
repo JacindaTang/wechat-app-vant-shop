@@ -1,0 +1,67 @@
+<!--index.wxml-->
+
+<!-- 轮播图 -->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{bg}}" style='height:{{height}}'>
+      <block wx:for="{{swiperImages}}" wx:key="index">
+        <swiper-item>
+            <image src="{{item}}" class="slide-image" mode="widthFix" bindload='imgH' style="display: block;"/>
+        </swiper-item>
+      </block>
+</swiper>
+
+<!-- 基本功能区 -->
+<van-grid column-num="5" border="{{false}}" icon-size="35px">
+  <block wx:for="{{funcList}}" wx:key="index">
+    <van-grid-item icon="{{item.icon}}" text="{{item.title}}" link-type="switchTab"
+    url="{{item.url}}"/>
+  </block>
+</van-grid>
+
+<!-- 今日推荐 -->
+<view>
+  <!-- 标题 -->
+  <view class="title">
+    <view>今日推荐</view>
+  </view>
+  <!-- 商品卡片 -->
+  <card card-list="{{cardList}}"></card>
+</view>
+
+<!-- 分隔符 -->
+<!-- <view class="divider"></view> -->
+
+<!-- 文章展示区 -->
+<!-- <van-tabs swipeable color="#2775b6" title-active-color="#2775b6">
+  <van-tab title="i创农">内容 3</van-tab>
+  <van-tab title="农讯">内容 1</van-tab>
+  <van-tab title="农技">内容 2</van-tab>
+  <van-tab title="热点">内容 3</van-tab>
+</van-tabs> -->
+
+<!-- 供应商/农场基地 宣传图展示区 -->
+<view class="showImage">
+  <view class="showImageChild">
+    <image
+      src="/images/swiper1.jpeg"
+      mode="widthFix"
+      style="width: 100%;display: block;"
+    />
+  </view>
+  <view class="showImageChild">
+    <image
+      src="/images/swiper2.jpeg"
+      mode="widthFix"
+      style="width: 100%;display: block;"
+    />
+  </view>
+  <view class="showImageChild">
+    <image
+      src="/images/swiper3.jpeg"
+      mode="widthFix"
+      style="width: 100%;display: block;"
+    />
+  </view>
+</view>
+
+<!-- 返回顶部 -->
+<backtop scrollTop="{{scrollTop}}"></backtop>

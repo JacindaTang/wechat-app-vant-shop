@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的收货地址",
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

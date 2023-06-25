@@ -1,0 +1,60 @@
+<!--pages/shopping_cart/shopping_cart.wxml-->
+<!-- 购物车为空 -->
+<view class="cart_null" wx:if="{{cartList.length === 0}}">
+  <image src="/images/cart_null.svg"></image>
+  <button class="add_cart" bindtap="toClassify">马上去选购</button>
+</view>
+
+<!-- 购物车列表 -->
+<scroll-view scroll-y="true" class="cart_list">
+  <!-- 购物车卡片 -->
+  <view wx:for="{{cartList}}" wx:for-index="cartIndex" wx:key="cartIndex" class="card">
+    <!-- 店铺标题 -->
+    <block wx:if="{{item.shopName != ''}}">
+      <view class="card_head">
+        <view class="card_head_leftbox">
+          <van-checkbox value="{{ item.shopSelected }}" data-shop-index="{{cartIndex}}"
+          bind:change="shopCheckFunc" checked-color="{{checkedColor}}"/>
+          <van-icon color="grey" name="shop-o" size="19px" class="shop_check" />
+          <view bindtap="toShop">{{item.shopName}}</view>
+          <van-icon bindtap="toShop" name="arrow" size="11px" class="shop_arrow" color="grey"/>
+        </view>
+        <van-icon data-shop-index="{{cartIndex}}" bind:click="deleteItemFunc" name="delete-o" size="19px" color="grey"/>
+      </view>
+    </block>
+    <!-- 卡片内容 -->
+    <block wx:for="{{item.goodsList}}" wx:key="index" wx:for-item="goods" >
+      <view class="card_contain" data-goodsid="{{goods.goods_id}}">
+        <!-- 复选框 selectIndex: 店铺的下标-->
+        <van-checkbox data-good-index="{{index}}" value="{{ goods.isSelected }}"
+        data-shop-index="{{cartIndex}}" data-goodsid="{{goods.goods_id}}"
+        bind:change="itemCheckFunc" checked-color="{{checkedColor}}" />
+        <!-- 商品图片 -->
+        <image src="{{goods.image}}" bindtap="toDetail"></image>
+        <!-- 规格信息 -->
+        <view class="scale_information">
+          <view class="scale_title" bindtap="toDetail">{{goods.title}}</view>
+          <view class="scale">{{goods.scale}}克</view>
+          <view class="scale_price_contain">
+            <view class="scale_price">￥{{goods.price}}</view>
+            <van-stepper data-shop-index="{{cartIndex}}" data-index="{{index}}" bind:change="scaleTotalFunc" value="{{ goods.num }}" min="1" max="8" />
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 底部留白 -->
+  <view style="height: 80px;"></view>
+</scroll-view>
+
+<!-- 购物车底部栏 -->
+<van-submit-bar
+  price="{{ totalPrice * 100 }}"
+  button-text="结算"
+  bind:submit="toOrderFunc"
+  safe-area-inset-bottom="{{false}}"
+  decimal-length="2"
+>
+  <van-checkbox disabled="{{disabled}}"  checked-color="{{checkedColor}}" value="{{ selectAllStatus }}" bind:change="selectAllFunc">全选</van-checkbox>
+</van-submit-bar>
+

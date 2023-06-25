@@ -1,0 +1,25 @@
+<!--pages/index/card/card.wxml-->
+<view>
+  <block wx:for="{{cardList}}" wx:key="index">
+    <van-card
+      origin-price="{{item.originPrice}}"
+      price="{{item.price}}"
+      thumb="{{item.image}}"
+    >
+      <view slot="title">
+        <view class="card_title">{{item.title}}</view>
+      </view>
+      <view slot="desc">
+        <view class="card_desc">已售{{item.num}}份</view>
+      </view>
+      <view class="card_tag" slot="tags">
+        <block wx:for="{{item.tags}}" wx:for-item="tagItem" wx:key="tagIndex">
+          <van-tag class="card_tag_child" plain round size="medium" type="primary">{{tagItem.title}}</van-tag>
+        </block>
+      </view>
+      <view slot="bottom">
+        <view bindtap="toDetail" data-id="{{item.id}}" class="purchase_btn">立即购买</view>
+      </view>
+    </van-card>
+  </block>
+</view>

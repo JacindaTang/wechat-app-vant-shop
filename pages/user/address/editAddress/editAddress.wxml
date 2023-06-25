@@ -1,0 +1,82 @@
+<!--pages/user/address/editAddress/editAddress.wxml-->
+<van-cell-group>
+  <van-field
+    size="large"
+    data-field="username"
+    value="{{ params.username }}"
+    required
+    clearable
+    label="收件人姓名"
+    placeholder="请输入收件人姓名"
+    bind:blur ="handleChange"
+    input-align="right"
+  />
+
+  <van-field
+    size="large"
+    data-field="telphone"
+    value="{{ params.telphone }}"
+    label="联系电话"
+    placeholder="手机号或固定电话"
+    required
+    bind:blur ="handleChange"
+    input-align="right"
+  />
+
+  <van-field
+    size="large"
+    readonly
+    clickable
+    value="{{ params.area }}"
+    label="地区"
+    placeholder="请选择所在地"
+    required
+    bind:blur="handleChange"
+    bind:click-input="openArea"
+    input-align="right"
+    is-link
+  />
+
+  <van-field
+    size="large"
+    data-field="detailAddress"
+    value="{{ params.detailAddress }}"
+    label="详细地址"
+    placeholder="具体到街道、楼层、门牌号等"
+    required
+    bind:blur ="handleChange"
+    input-align="right"
+  />
+
+  <van-field
+    size="large"
+    data-field="postCode"
+    value="{{ params.postCode }}"
+    label="邮政编码"
+    placeholder="邮政编码（选填）"
+    border="{{ false }}"
+    bind:blur ="handleChange"
+    input-align="right"
+  />
+
+</van-cell-group>
+
+<view style="text-align: center;margin-top: 20px;">
+  <van-button bind:click="submitFunc" custom-class="submitb" block color="#2775b6" round type="default">保存</van-button>
+</view>
+
+<!-- 区域地址弹出层 -->
+<van-popup
+  show="{{showArea}}"
+  position="bottom"
+  custom-style="height: 50%;"
+  bind:close="onClose"
+>
+  <van-area
+    area-list="{{ areaList }}"
+    columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}"
+    title="选择地址"
+    bind:confirm="getArea"
+    bind:cancel="colseArea"
+  />
+</van-popup>

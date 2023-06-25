@@ -1,0 +1,7 @@
+<!--pages/goods/goods.wxml-->
+<!-- 商品卡片 -->
+<card card-list="{{cardList}}"></card>
+<view style="height: 80px;text-align: center;padding-top: 40px;">已全部加载完</view>
+
+<!-- 返回顶部 -->
+<backtop scrollTop="{{scrollTop}}"></backtop>

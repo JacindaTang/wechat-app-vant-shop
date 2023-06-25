@@ -1,0 +1,103 @@
+<!--pages/goods/goodsDetail/detail.wxml-->
+<scroll-view scroll-y="true" style="height: 100%;">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{bg}}" style='height:{{height}}'>
+        <block wx:for="{{swiperImages}}" wx:key="index">
+          <swiper-item>
+              <image src="{{item}}" class="slide-image" mode="widthFix" bindload='imgH' style="display: block;"/>
+          </swiper-item>
+        </block>
+  </swiper>
+
+  <!-- 商品基本信息 -->
+  <view class="goods_box">
+    <view class="goods_price_box">
+      <view class="goods_price">￥59.00</view>
+      <view class="goods_originPrice">￥79.00</view>
+    </view>
+    <!-- <view class="goods_title">空心菜</view> -->
+    <view style="display: flex; justify-content: space-between; padding: 0 10rpx">
+      <view>苏坂蜜柚，产自苏坂黄地村</view>
+      <van-icon name="{{isCollection ? 'goods-collect' : 'goods-collect-o'}}" size="24px" 
+      color="{{isCollection ? '#ff6034' : ''}}" bind:click="collectionFunc"/>
+    </view>
+    <view class="goods_nums">
+      <view>运费：8.00</view>
+      <view>库存：130</view>
+      <view>销量：8106件</view>
+    </view>
+  </view>
+
+  <!-- 分隔符 -->
+  <view class="divider"></view>
+
+  <!-- 店铺名称 -->
+  <view style="display: flex; align-items: center;justify-content: space-between; padding: 15px;">
+    <view style="display: flex; align-items: center;">
+      <image src="/images/5.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid gainsboro;"></image>
+      <view style="margin-left: 10px;">
+        <view>太福</view>
+        <view style="font-size: small; margin-top: 4px; color: grey;">优质好店邀你共享</view>
+      </view>
+    </view>
+    <view>
+      <van-button round color="#ff6034" plain size="small" bind:click="toAllGoods">全部商品</van-button>
+    </view>
+  </view>
+
+  <!-- 分隔符 -->
+  <view class="divider"></view>
+
+  <!-- 商品详情 -->
+  <view class="goods_detail">
+    <view class="goods_detail_title">商品详情</view>
+    <text>商品{{id}}的详情页</text>
+  </view>
+
+  <!-- 商品导航Action -->
+  <van-goods-action>
+    <van-goods-action-icon icon="wap-home-o" text="首页" bind:click="toIndex" text-class="left-action-text-size"/>
+    <van-goods-action-icon info="2" icon="cart-o" text="购物车" bind:click="toCart" text-class="left-action-text-size"/>
+    <van-goods-action-button
+      text="加入购物车"
+      type="warning"
+      bind:click="showPopup"
+      id="addCar"
+    />
+    <van-goods-action-button id="purchase" text="立即购买" bind:click="showPopup" />
+  </van-goods-action>
+
+  <!-- 加入购物车动作面板 -->
+  <van-popup
+    round
+    show="{{ show }}"
+    closeable
+    position="bottom"
+    custom-style="height: 55%"
+    bind:close="closePopup"
+    safe-area-inset-bottom="false"
+  >
+    <view style="padding: 15px;">
+      <view class="goods_box_action">
+        <image src="/images/shuchai.jpeg"/>
+        <view class="goods_box_action_contain">
+          <view class="goods_box_action_title">空心菜</view>
+          <view class="goods_box_action_price">￥10.00</view>
+          <view class="goods_box_action_nums">库存30件</view>
+        </view>
+      </view>
+      <view class="divider divider_update"></view>
+      <view class="scale">规格：粒/袋</view>
+      <view class="divider divider_update"></view>
+      <view class="goods_box_action_select">
+        <view style="font-size: small;display: flex;">
+          购买数量：<view>已选择{{goodsNums}}件</view>
+        </view>
+        <van-stepper bind:change="scaleTotalFunc" value="{{ goodsNums }}" min="1" max="8" />
+      </view>
+    </view>
+    <van-button id="{{popupBtnTitle}}" class="btn" color="#2c9678" size="large" bind:click="submitFunc">{{popupBtnTitle}}</van-button>
+  </van-popup>
+
+</scroll-view>
+

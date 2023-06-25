@@ -1,0 +1,47 @@
+<!--pages/classify/classify.wxml-->
+<!-- 顶部搜索框 -->
+<view>
+  <van-search
+    shape="round"
+    value="{{ value }}"
+    placeholder="请输入搜索关键词"
+    bind:search="onSearch"
+    bind:click-input="onClickSearchInput"
+    use-action-slot="{{isShowAction}}"
+  >
+    <view slot="action" bind:tap="onSearch">搜索</view>
+  </van-search>
+</view>
+
+<!-- 分类内容 -->
+<view class="main_layout">
+  <!-- 左侧菜单栏 -->
+  <view class="left_Menulist">
+    <van-sidebar active-key="{{ tabIndex }}" bind:change="onChange">
+      <block wx:for="{{menuList}}" wx:key="index" >
+        <van-sidebar-item title="{{item.tabName}}"/>
+      </block>
+    </van-sidebar>
+  </view>
+
+  <!-- 右侧选择内容 -->
+  <view class="right_MainLayout">
+    <!-- 右侧菜单 -->
+    <!-- 产品推荐列 -->
+    <block wx:if="{{tabIndex === 0}}">
+      <!-- 商品卡片 -->
+      <card card-list="{{cardList}}" class="card"></card>
+    </block>
+    <!-- 分类 -->
+    <block wx:else>
+      <van-grid column-num="3" class="grid" border="{{false}}">
+        <block wx:for="{{ menuList[tabIndex].detail }}" wx:key="index">
+          <van-grid-item bind:click="toGoodsList" data-id="{{item.id}}"
+          icon="{{item.image}}" text="{{item.title}}"/>
+        </block>
+      </van-grid>
+    </block>
+  </view>
+</view>
+
+

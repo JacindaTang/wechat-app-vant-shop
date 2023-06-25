@@ -1,0 +1,47 @@
+/* pages/user/address/address.wxss */
+/* 添加收货地址 单元格布局 */
+van-cell .address {
+  font-size: 16px;
+  padding: 18px 10px;
+}
+van-cell .address van-icon{
+  font-size: 33px;
+  color: #2775b6;
+  margin-right: 10px;
+}
+
+
+/* 地址为空 */
+.cart_null {
+  text-align: center;
+  align-items: center;
+  padding-top: 40px;
+}
+.cart_null view {
+  color: grey;
+  margin-top: 10px;
+}
+.add_cart {
+  background-color: #2775b6;
+  color: white;
+  border-radius: 30px;
+  width: 30%;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.address_box {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 14px;
+  align-items: center;
+  border-bottom: rgb(245, 245, 245) solid 1px;
+}
+.address_contain {
+  padding: 0 10px;
+}
+.address_contain text{
+  margin-right: 10px;
+  font-size: small;
+}

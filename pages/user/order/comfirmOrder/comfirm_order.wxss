@@ -1,0 +1,29 @@
+/* pages/user/order/comfirmOrder/comfirm_order.wxss */
+page {
+  background-color: rgb(245, 245, 245);
+}
+/* 分隔符 */
+.divider {
+  /* background-color: #ccc;
+  opacity: 0.3;  */
+  height: 10px;
+}
+
+van-card .card {
+  padding: 0px 16px;
+  padding-bottom: 15px;
+}
+
+.address_box {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 14px;
+}
+.address_contain {
+  padding: 0 10px;
+}
+.address_contain text{
+  margin-right: 10px;
+  font-size: small;
+}

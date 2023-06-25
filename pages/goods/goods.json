@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "card": "/pages/index/card/card",
+    "backtop": "../component/backtop/backtop"
+  }
+}

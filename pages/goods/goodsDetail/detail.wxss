@@ -1,0 +1,107 @@
+/* pages/goods/goodsDetail/detail.wxss */
+
+/* 轮播图图片宽度 */
+.slide-image{
+  width: 100%;
+  height: 100%;
+}
+
+/* 商品详情 */
+.goods_box {
+  padding: 20rpx 20rpx 0 20rpx;
+}
+.goods_price_box {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15rpx;
+}
+.goods_price {
+  color: red;
+  font-weight: bolder;
+  font-size:x-large;
+  margin-right: 20rpx;
+}
+.goods_originPrice {
+  text-decoration:line-through;
+  color: grey;
+  font-size: small;
+}
+.goods_title {
+  padding-left: 10rpx;
+}
+.goods_nums {
+  display: flex;
+  justify-content: space-between;
+  margin:25px 0 10px 0;
+  padding-left: 10rpx; 
+  color: grey;
+  font-size: small;
+}
+
+/* 分隔符 */
+.divider {
+  background-color: #ccc;
+  opacity: 0.3; 
+  height: 10px;
+}
+.van-goods-action .van-goods-action-icon__icon {
+  font-size: 18px
+}
+.left-action-text-size {
+  font-size: 11px;
+}
+
+/* 商品详情 */
+.goods_detail {
+  padding: 20rpx 30rpx;
+  margin-bottom: 180px;
+}
+.goods_detail_title {
+  padding-bottom: 20rpx; font-weight:bold;
+}
+.divider_update {
+  background-color: #ccc;
+  opacity: 0.3; 
+  height: 1px;
+  margin-top: 20px;
+}
+.scale {
+  margin-top: 15px;
+  font-size: small;
+}
+.goods_box_action_select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* 购买规格的动作面板 */
+.goods_box_action {
+  display: flex;
+  align-items: center;
+}
+.goods_box_action image {
+  width: 120px;
+  height: 120px;
+}
+.goods_box_action_contain {
+  margin-left: 12px;
+}
+.goods_box_action_contain view {
+  margin-bottom: 10px;
+}
+.goods_box_action_price {
+  color: red;
+  font-weight: bold;
+  font-size: large;
+}
+.goods_box_action_nums {
+  color: grey;
+  font-size: small;
+}
+.btn {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+}

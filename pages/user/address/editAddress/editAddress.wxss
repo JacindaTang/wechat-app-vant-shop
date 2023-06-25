@@ -1,0 +1,12 @@
+/* pages/user/address/editAddress/editAddress.wxss */
+page {
+  background-color: rgb(245, 245, 245);
+}
+
+van-button .van-button--block {
+  width: 90%;
+}
+
+van-cell-group .van-cell {
+  padding: 18px 20px;
+}
