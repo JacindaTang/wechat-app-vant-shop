@@ -99,3 +99,36 @@ UI：Vant UI
 - 地址列表
     - 添加、编辑地址
 
+## 项目截图
+
+- 首页
+
+<img src="https://cdnjson.com/images/2023/06/26/1.jpg" alt="1.jpg" border="0" />
+
+- 分类页
+
+<img src="https://cdnjson.com/images/2023/06/26/3.jpg" alt="3.jpg" border="0" />
+
+<img src="https://cdnjson.com/images/2023/06/26/4.jpg" alt="4.jpg" border="0" />
+
+- 商品详情
+
+<img src="https://cdnjson.com/images/2023/06/26/6.jpg" alt="6.jpg" border="0" />
+
+<img src="https://cdnjson.com/images/2023/06/26/5.jpg" alt="5.jpg" border="0" />
+
+- 购物车页
+
+<img src="https://cdnjson.com/images/2023/06/26/8.jpg" alt="8" border="0">
+
+- 订单页
+
+<img src="https://cdnjson.com/images/2023/06/26/14.jpg" alt="14" border="0">
+
+- 用户中心
+
+<img src="https://cdnjson.com/images/2023/06/26/13.jpg" alt="13" border="0">
+
+- 地址列表
+
+<img src="https://cdnjson.com/images/2023/06/26/12.jpg" alt="12" border="0">
